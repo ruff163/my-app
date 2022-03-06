@@ -1,0 +1,22 @@
+.nav{
+    grid-area: n;
+    background-color: #f0f1f1;
+    padding-top: 20px;
+    align-items: center;
+
+  }
+.nav li{
+    list-style-type: none;
+    padding: 10px 0px 10px 40px;
+    
+  }
+  
+  .nav a{
+    text-decoration: none;
+    color: black;
+  }
+  .nav li:hover{
+   
+    background-color: #a9c7bd;
+  }
+  
