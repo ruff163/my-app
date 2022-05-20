@@ -1,13 +1,14 @@
-
+import React from 'react';
 import './App.css';
 import Header from './header/header';
 import Nav from './navbar/nav';
 import Profile from './profile/profile';
-import Dialogs from './Dialogs/Dialogs';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { addPost } from './redux/state';
+import DialogsContainer from './Dialogs/DialogsContainer';
+import Users from './Users/Users';
 
-const App=(props)=> {
+
+const App=()=> {
   
   return (
     <BrowserRouter>
@@ -16,8 +17,9 @@ const App=(props)=> {
       <Nav />      
       <div className='app-wrapper-content'>
         <Routes>
-        <Route path='/Dialogs/*' element ={<Dialogs state={props.state.dialogsPage}/>} />
-        <Route path='/profile' element ={<Profile state={props.state.profilePage} addPost={props.addPost}/>} />
+          <Route path='/profile' element ={<Profile/>} />
+          <Route path='/Users' element ={<Users/>} />
+          <Route path='/Dialogs/*' element ={<DialogsContainer/>} />
         </Routes>
         </div>
     </div>

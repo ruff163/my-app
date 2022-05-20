@@ -1,15 +1,15 @@
 import React from "react";
-import MyPosts from "./MyPosts/MyPosts";
+import MyPostsContainer from "./MyPosts/MyPostscontainer";
 import s from "./profile.module.css";
 import ProfileInfo from "./ProfileInfo/profileInfo";
 
 
-const Profile =(props)=>{
-  
+const Profile =()=>{
+
   return(
       <main className={s.content}>
         <ProfileInfo />
-        <MyPosts posts={props.state.posts} addPost={props.addPost} />
+        <MyPostsContainer />
       </main>
   )
 }

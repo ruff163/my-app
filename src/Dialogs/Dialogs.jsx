@@ -7,18 +7,33 @@ import Message from "./message/message";
 
 
 const Dialogs = (props)=>{
-    let dialogsElements=props.state.dialogs
-.map(dialog=><DialogItem name={dialog.name} id={dialog.id}/>);
+    let state=props.dialogsPage;
 
-    let messagesElements=props.state.messages.map(message=><Message message={message.message}/>);
+    let dialogsElements=state.dialogs.map(d=><DialogItem name={d.name} key={d.id} id={d.id}/>);
+    let messagesElements=state.messages.map(m=><Message message={m.message} key={m.id}/>);
+    let newMessageBody=state.newMessageBody;
+
+    let onSendMessageClick=()=>{
+        props.sendMessage();
+    };
+    let onNewMessageChange=(e)=>{
+        let body=e.target.value;
+        props.updateNewMessageBody(body)
+    };
     return(
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
               {dialogsElements}
               </div>
             <div className={s.messages}>
-                {messagesElements}
-               </div>
+                <div>{messagesElements}</div>
+                <div>
+                    <div><textarea name="" value={newMessageBody} 
+                                onChange={onNewMessageChange}
+                                id="" placeholder="enter your message"></textarea></div>
+                    <div><button onClick={onSendMessageClick}>send</button></div>
+                </div>
+            </div>
         </div>
     )
 }
